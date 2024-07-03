@@ -10,7 +10,7 @@ const companySchema = new Schema({
     type: String,
     required: true,
   },
-  url : {
+  url: {
     type: String,
     required: true,
   },
@@ -29,6 +29,9 @@ const companySchema = new Schema({
   twitter: {
     type: String,
     required: true,
+  },
+  screenShot: {
+    type: String,
   },
   instagram: {
     type: String,

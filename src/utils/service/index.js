@@ -32,6 +32,7 @@ export const scrapeServices = async (url) => {
         phone: $('a[href^="tel:"]').text(),
         email: $('a[href^="mailto:"]').text(),
         url,
+        screenShot: `${baseName}.png`,
       };
 
       // Close the browser instance
