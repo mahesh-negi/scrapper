@@ -4,6 +4,6 @@ const router = Router();
 
 import companyRouter from "./company-routes.js";
 
-router.use("/user", companyRouter);
+router.use("/company", companyRouter);
 
 export default router;
