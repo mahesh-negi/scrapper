@@ -4,50 +4,51 @@ import mongoosePaginate from "mongoose-paginate-v2";
 const companySchema = new Schema({
   name: {
     type: String,
-    required: true,
+    default: null,
   },
   description: {
     type: String,
-    required: true,
+    default: null,
   },
   url: {
     type: String,
-    required: true,
+    default: null,
   },
   logo: {
     type: String,
-    required: true,
+    default: null,
   },
   facebook: {
     type: String,
-    required: true,
+    default: null,
   },
   linkedin: {
     type: String,
-    required: true,
+    default: null,
   },
   twitter: {
     type: String,
-    required: true,
+    default: null,
   },
   screenShot: {
     type: String,
+    default: null,
   },
   instagram: {
     type: String,
-    required: true,
+    default: null,
   },
   address: {
     type: String,
-    required: true,
+    default: null,
   },
   phone: {
     type: String,
-    required: true,
+    default: null,
   },
   email: {
     type: String,
-    required: true,
+    default: null,
   },
 });
 

@@ -1,23 +1,23 @@
 import axios from "axios";
 import { load } from "cheerio";
-import { launch } from "puppeteer";
+import puppeteer from "puppeteer";
 
 export const scrapeServices = async (url) => {
   return new Promise(async (resolve, reject) => {
     try {
-      const browser = await launch();
-      const page = await browser.newPage();
+      //   const browser = await puppeteer.launch();
+      //   const page = await browser.newPage();
 
-      await page.goto(url);
+      const res = await axios.get(url);
       const baseName = url.split("//")[1];
 
-      await page.screenshot({ path: `uploads/${baseName}.png` });
+      //   await page.screenshot({ path: `uploads/${baseName}.png` });
 
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      //   await new Promise((resolve) => setTimeout(resolve, 3000));
 
-      const html = await page.content();
+      //   const html = await page.content();
 
-      const $ = load(html);
+      const $ = load(res.data);
 
       // Scrape the data
       const websiteData = {
@@ -32,15 +32,16 @@ export const scrapeServices = async (url) => {
         phone: $('a[href^="tel:"]').text(),
         email: $('a[href^="mailto:"]').text(),
         url,
-        screenShot: `${baseName}.png`,
+        // screenShot: `${baseName}.png`,
       };
 
       // Close the browser instance
-      await browser.close();
+      //   await browser.close();
       console.log("website data", websiteData);
       resolve(websiteData);
     } catch (error) {
-      reject(null);
+      console.log("🚀 ~ returnnewPromise ~ error:", error);
+      reject(error);
     }
   });
 };

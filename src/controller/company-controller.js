@@ -19,7 +19,10 @@ export default {
 
       await requestHandler.validateRequest(req.body, schema);
 
+      console.log("req", req.body);
+
       const websiteData = await scrapeServices(req.body.url);
+      console.log("🚀 ~ addCompanyDetails: ~ websiteData:", websiteData)
       const result = new Company(websiteData);
       await result.save();
 
@@ -29,6 +32,8 @@ export default {
         member: result,
       });
     } catch (error) {
+      console.log("🚀 ~ addCompanyDetails: ~ error:", error)
+      
       return responseHandler.handleError(res, error);
     }
   },
